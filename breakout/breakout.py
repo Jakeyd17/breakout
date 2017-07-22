@@ -195,7 +195,7 @@ class Breakout():
 
             # if wall completely gone then rebuild it
             if wall.brickrect == []:
-                wall.build_wall(width)
+                wall.build_wall2(width)
                 xspeed = xspeed_init
                 yspeed = yspeed_init
                 ballrect.center = width / 2, height / 3
@@ -230,6 +230,24 @@ class Wall():
                 ypos += self.brickheight
                 
             self.brickrect.append(self.brick.get_rect())    
+            self.brickrect[i] = self.brickrect[i].move(xpos, ypos)
+            xpos = xpos + self.bricklength
+
+    def build_wall2(self, width):
+        xpos = 0
+        ypos = 60
+        adj = 0
+        self.brickrect = []
+        for i in range(0, 52):
+            if xpos > width:
+                if adj == 0:
+                    adj = self.bricklength / 2
+                else:
+                    adj = 0
+                xpos = -adj
+                ypos += self.brickheight
+
+            self.brickrect.append(self.brick.get_rect())
             self.brickrect[i] = self.brickrect[i].move(xpos, ypos)
             xpos = xpos + self.bricklength
 
