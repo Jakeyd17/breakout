@@ -70,15 +70,7 @@ class Breakout():
         pygame.key.set_repeat(1,30)       
         pygame.mouse.set_visible(0) # turn off mouse pointer
 
-        while 1
-            def wait_until(score, = 500)
-
-
-
-
-
-
-
+        while True:
             # 60 frames per second
             clock.tick(60)
 
