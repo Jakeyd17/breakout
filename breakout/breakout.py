@@ -70,7 +70,8 @@ class Breakout():
         pygame.key.set_repeat(1,30)       
         pygame.mouse.set_visible(0) # turn off mouse pointer
 
-        while True:
+        gameOn = True
+        while gameOn:
             # 60 frames per second
             clock.tick(60)
 
@@ -180,6 +181,8 @@ class Breakout():
                 pong.play(0)              
                 wall.brickrect[index:index + 1] = []
                 score += 100
+                # check if score exceeds max score
+                # if so, do some magic
                           
             screen.fill(bgcolour)
             scoretext = pygame.font.Font(None,40).render(str(score), True, (255,255,0), bgcolour)
@@ -200,6 +203,9 @@ class Breakout():
             screen.blit(ball, ballrect)
             screen.blit(bat, batrect)
             pygame.display.flip()
+
+
+        # write code to make game over easier
 
 class Wall():
 
